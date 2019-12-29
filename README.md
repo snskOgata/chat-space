@@ -7,7 +7,7 @@ ruby 2.5.1
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false|
+|name|string|null: false|
 |email|string|null: false, unique:true|
 |password|string|null: false|
 #### Association
@@ -27,7 +27,7 @@ ruby 2.5.1
 ### groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|text|null: false|
+|name|string|null: false|
 #### Association
 - has_many :groups_users
 - has_many  :users,  through:  :groups_users
