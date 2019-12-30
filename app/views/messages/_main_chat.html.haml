@@ -1,8 +1,17 @@
 .chat-main
   .chat-main__group-info
     .top-items
-      .top-items__name
-      .top-items__edit-btn
+      .top-items__left-item
+        .top-items__left-item__group-name
+          TECH::EXPERT68期
+        %ul.top-items__left-item__menber-list
+          Member:
+          %li.member-name
+            snskOgata
+          %li
+            nakamori
+      = link_to '#', class: 'top-items__edit-btn' do
+        Edit
   .chat-main__message-list
   .chat-main__message-form
     .bottom-items
