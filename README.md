@@ -37,8 +37,8 @@ ruby 2.5.1
 ### messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: true|
-|image|string|null: true|
+|text|text||
+|image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 #### Association
