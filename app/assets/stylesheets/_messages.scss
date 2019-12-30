@@ -11,6 +11,31 @@
     height: 100px;
     width: 300px;
     background-color: #253141;
+    display: flex;
+    align-items: center;
+
+    .top-items {
+      height: 20px;
+      width: 260px;
+      margin: auto 20px;
+      display: flex;
+      justify-content: space-between;
+
+      &__name {
+        color: white;
+        line-height: 20px;
+      }
+      &__icons{
+        width: 60px;
+        display: flex;
+        justify-content: flex-end;
+        &__icon {
+          text-decoration: none;
+          color: white;
+          margin-left: 5px;
+        }
+      }
+    }
   }
 
   &__group-list {
