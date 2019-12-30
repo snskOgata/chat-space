@@ -35,7 +35,8 @@
       .bottom-items__left-item
         .bottom-items__left-item__message-field
           type a message
-        .bottom-items__left-item__image-icon
-          %i.far.fa-image
-      .bottom-items__send-btn
+        %label{class: "bottom-items__left-item__image-icon"}
+          = icon('far', 'image')
+          %input{type: "file"}
+      = link_to '#', class: 'bottom-items__send-btn' do
         Send
