@@ -18,8 +18,8 @@ ruby 2.5.1
 ### groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groups_id|integer|null: false, foreign_key: true|
-|users_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
