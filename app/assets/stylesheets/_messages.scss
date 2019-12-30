@@ -1,3 +1,5 @@
+$btn_color: #38aef0;
+
 * {
   box-sizing: border-box;
 }
@@ -104,8 +106,8 @@
         text-decoration-line: none;
         text-align: center;
         line-height: 40px;
-        color: #38aef0;
-        border: 1px solid #38aef0;
+        color: $btn_color;
+        border: 1px solid $btn_color;
       }
     }
   }
@@ -189,7 +191,7 @@
         height: 48px;
         text-align: center;
         line-height: 50px;
-        background-color: #38aef0;
+        background-color: $btn_color;
         color: white;
         cursor: pointer
       }
