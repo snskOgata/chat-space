@@ -6,6 +6,7 @@ $btn_color: #38aef0;
 
 .wrapper {
   display: flex;
+  overflow: hidden;
 }
 
 .side-bar {
@@ -56,7 +57,7 @@ $btn_color: #38aef0;
       .group-item {
         color: #ffffff;
         text-decoration: none;
-        
+
         &__group-name {
           color: #ffffff;
           font-size: 15px;
