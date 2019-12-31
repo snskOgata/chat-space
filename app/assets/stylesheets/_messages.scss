@@ -53,17 +53,19 @@ $btn_color: #38aef0;
     .group-items {
       margin: 0 20px;
       padding: 20px 0;
-
-
-
-      &__group-name {
+      .group-item {
         color: #ffffff;
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-      &__new-message {
-        color: #ffffff;
-        font-size: 11px;
+        text-decoration: none;
+        
+        &__group-name {
+          color: #ffffff;
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__new-message {
+          color: #ffffff;
+          font-size: 11px;
+        }
       }
     }
   }

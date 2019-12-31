@@ -11,11 +11,12 @@
   .side-bar__group-list
     - current_user.groups.each do |group|
       .group-items
-        .group-items__group-name
-          = group.name
-        .group-items__new-message
-          - if group.messages.last.present?
-            = group.messages.last.content? ? group.messages.last.content : "画像が投稿されています"
-          - else
-            まだメッセージがありません
-            
+        = link_to "/groups/#{group.id}/messages", class: "group-item" do 
+          .group-item__group-name
+            = group.name
+          .group-item__new-message
+            - if group.messages.last.present?
+              = group.messages.last.content? ? group.messages.last.content : "画像が投稿されています"
+            - else
+              まだメッセージがありません
+              
