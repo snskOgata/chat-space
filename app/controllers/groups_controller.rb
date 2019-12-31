@@ -20,10 +20,17 @@ class GroupsController < ApplicationController
   def show
   end
 
-  def edit    
+  def edit
+    @group = Group.find(params[:id])
   end
 
   def update
+    @group = Group.new(group_params)
+    if @group.update(group_params)
+      redirect_to root_path, notice: 'グループを変更しました'
+    else
+      render :edit
+    end
   end
 
   private
