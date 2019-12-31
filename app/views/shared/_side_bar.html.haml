@@ -9,7 +9,7 @@
         = link_to '#', class: 'top-items__icons__icon' do
           %i.fa.fa-cog
   .side-bar__group-list
-    - @groups.each do |group|
+    - current_user.groups.each do |group|
       .group-items
         .group-items__group-name
           = group.name
