@@ -6,10 +6,8 @@
           = @group.name
         %ul.top-items__left-item__menber-list
           Member:
-          %li.member-name
-            snskOgata
-          %li
-            nakamori
+          - @group.users.each do |user|
+            = user.name
       = link_to '#', class: 'top-items__edit-btn' do
         Edit
   .chat-main__message-list
