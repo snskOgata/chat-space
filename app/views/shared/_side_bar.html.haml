@@ -14,4 +14,8 @@
         .group-items__group-name
           = group.name
         .group-items__new-message
-          まだメッセージがありません
+          - if group.messages.last.present?
+            = group.messages.last.content? ? group.messages.last.content : "画像が投稿されています"
+          - else
+            まだメッセージがありません
+            
