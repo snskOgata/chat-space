@@ -19,6 +19,6 @@
         .bottom-items__left-item
           = f.text_field :content, placeholder: "type a message", class: "bottom-items__left-item__message-field"
           = f.label :image, class: "bottom-items__left-item__image-icon" do
-            = icon("fas", "image", class: "icon")
+            = icon("far", "image", class: "icon")
             = f.file_field :image
         = f.submit "Send", class: "bottom-items__send-btn"
