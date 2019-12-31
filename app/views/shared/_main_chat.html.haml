@@ -12,22 +12,17 @@
         Edit
   .chat-main__message-list
     .message-boxes
-      .message-box
-        .message-box__top-items
-          .message-box__top-items__name
-            snskOgata
-          .message-box__top-items__date
-            2019/12/30(Mon) 16:30:00
-        .message-box__message
-          疲れるけどたのしい
-      .message-box
-        .message-box__top-items
-          .message-box__top-items__name
-            snskOgata
-          .message-box__top-items__date
-            2019/12/30(Mon) 16:30:00
-        .message-box__message
-          もう少しだけ頑張る
+      - @messages.each do |message|
+        .message-box
+          .message-box__top-items
+            .message-box__top-items__name
+              = message.user.name
+            .message-box__top-items__date
+              = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          - if message.content.present?
+            %p.message-box__message
+              = message.content
+          = image_tag message.image.url, class: "message-box__image" if message.image.present?
   .chat-main__message-form
     = form_for [@group, @message] do |f|
       .bottom-items
