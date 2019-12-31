@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.new(group_params)
+    @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to root_path, notice: 'グループを変更しました'
     else
