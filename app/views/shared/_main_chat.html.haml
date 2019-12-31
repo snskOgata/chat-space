@@ -8,7 +8,7 @@
           Member:
           - @group.users.each do |user|
             = user.name
-      = link_to '#', class: 'top-items__edit-btn' do
+      = link_to "/groups/#{@group.id}/edit", class: 'top-items__edit-btn' do
         Edit
   .chat-main__message-list
     .message-boxes
