@@ -1,5 +1,5 @@
 # README
-###Ruby version
+### Ruby version
 ruby 2.5.1
 
 ## Database design
@@ -7,7 +7,7 @@ ruby 2.5.1
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true, index: true|
 |email|string|null: false, unique:true|
 |password|string|null: false|
 #### Association
@@ -27,7 +27,7 @@ ruby 2.5.1
 ### groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true|
 #### Association
 - has_many :groups_users
 - has_many  :users,  through:  :groups_users
