@@ -37,7 +37,7 @@ ruby 2.5.1
 ### messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|content|text||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|

@@ -3,40 +3,22 @@
     .top-items
       .top-items__left-item
         .top-items__left-item__group-name
-          TECH::EXPERT68期
+          = @group.name
         %ul.top-items__left-item__menber-list
           Member:
-          %li.member-name
-            snskOgata
-          %li
-            nakamori
-      = link_to '#', class: 'top-items__edit-btn' do
+          - @group.users.each do |user|
+            = user.name
+      = link_to "/groups/#{@group.id}/edit", class: 'top-items__edit-btn' do
         Edit
   .chat-main__message-list
     .message-boxes
-      .message-box
-        .message-box__top-items
-          .message-box__top-items__name
-            snskOgata
-          .message-box__top-items__date
-            2019/12/30(Mon) 16:30:00
-        .message-box__message
-          疲れるけどたのしい
-      .message-box
-        .message-box__top-items
-          .message-box__top-items__name
-            snskOgata
-          .message-box__top-items__date
-            2019/12/30(Mon) 16:30:00
-        .message-box__message
-          もう少しだけ頑張る
+      = render @messages
   .chat-main__message-form
-    .bottom-items
-      .bottom-items__left-item
-        .bottom-items__left-item__message-field
-          type a message
-        %label{class: "bottom-items__left-item__image-icon"}
-          = icon('far', 'image')
-          %input{type: "file"}
-      = link_to '#', class: 'bottom-items__send-btn' do
-        Send
+    = form_for [@group, @message] do |f|
+      .bottom-items
+        .bottom-items__left-item
+          = f.text_field :content, placeholder: "type a message", class: "bottom-items__left-item__message-field"
+          = f.label :image, class: "bottom-items__left-item__image-icon" do
+            = icon("far", "image", class: "icon")
+            = f.file_field :image
+        = f.submit "Send", class: "bottom-items__send-btn"
