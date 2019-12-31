@@ -12,23 +12,13 @@
         Edit
   .chat-main__message-list
     .message-boxes
-      - @messages.each do |message|
-        .message-box
-          .message-box__top-items
-            .message-box__top-items__name
-              = message.user.name
-            .message-box__top-items__date
-              = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-          - if message.content.present?
-            %p.message-box__message
-              = message.content
-          = image_tag message.image.url, class: "message-box__image" if message.image.present?
+      = render @messages
   .chat-main__message-form
     = form_for [@group, @message] do |f|
       .bottom-items
         .bottom-items__left-item
           = f.text_field :content, placeholder: "type a message", class: "bottom-items__left-item__message-field"
           = f.label :image, class: "bottom-items__left-item__image-icon" do
-            %i.fa.fa-image
+            = icon("fas", "image", class: "icon")
             = f.file_field :image
         = f.submit "Send", class: "bottom-items__send-btn"
