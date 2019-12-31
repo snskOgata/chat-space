@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
 
+  gem 'bullet'
 end
 
 group :development do
