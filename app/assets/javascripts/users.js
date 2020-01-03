@@ -32,7 +32,7 @@ $(function () {
         appendSearchedUserlist(users);
       })
       .fail(function () {
-        console.log('エラー');
+        console.log('通信エラーです。ユーザが表示できません。');
       });
   });
 });
