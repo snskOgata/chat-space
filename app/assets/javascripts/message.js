@@ -2,7 +2,7 @@ $(function () {
 
   function buildHTML(message) {
     // 名前と日付
-    let html = `<div class="message" data-message-id="${message.id}">
+    let html = `<div class="message-box" data-message-id="${message.id}">
                   <div class="message-box__top-items">
                     <div class="message-box__top-items__name">
                       ${message.user_name}
@@ -10,24 +10,23 @@ $(function () {
                     <div class="message-box__top-items__date">
                       ${message.date}
                     </div>
-                  </div>
-                </div>`
+                  </div>`
 
     // 画像あり
     if (message.image) {
       // 画像あり文章あり
       if (message.content) {
         html += `<p class="message-box__message">${message.content}</p >`;
-        html += `<img class="message-box__image" src="${message.image}" alt="Hirune soto boy">`
+        html += `<img class="message-box__image" src="${message.image}" alt="Hirune soto boy"></div>`
       }
       // 画像あり文章なし
       else {
-        html += `<img class="message-box__image" src="${message.image}" alt="Hirune soto boy">`
+        html += `<img class="message-box__image" src="${message.image}" alt="Hirune soto boy"></div>`
       }
     }
     // 画像なし
     else {
-      html += `<p class="message-box__message">${message.content}</p >`;
+      html += `<p class="message-box__message">${message.content}</p ></div>`;
     }
     return html
   }
@@ -59,7 +58,7 @@ $(function () {
       })
   })
 
-  var reloadMessages = function () {
+  function reloadMessages() {
     last_message_id = $('.message-box:last').data("message-id");
     $.ajax({
       url: "api/messages",
@@ -75,10 +74,15 @@ $(function () {
             insertHTML += buildHTML(message)
           });
 
-          $('.messages').append(insertHTML);
-          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+          $('.message-boxes').append(insertHTML);
+          $('.chat-main__message-list').animate({ scrollTop: $('.message-boxes')[0].scrollHeight });
         }
-      });
+      })
+      .fail(function () {
+        alert('メッセージの受信に失敗しました');
+      })
   };
-  setInterval(reloadMessages, 7000);
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
