@@ -19,7 +19,7 @@ $(function () {
   }
 
   // 追加をクリックされたユーザをチャットメンバーに表示
-  function appendClickedUserlist(name, id) {
+  function appendClickedUserToMembers(name, id) {
     var html = `<div class='chat-group-user'>
             <input name='group[user_ids][]' type='hidden' value='${id}'>
             <p class='chat-group-user__name'>${name}</p>
@@ -48,7 +48,7 @@ $(function () {
 
   $(document).on("click", ".chat-group-user__btn--add", function () {
     $(this).parent().remove();
-    appendClickedUserlist($(this).attr("data-user-name"), $(this).attr("data-user-id"))
+    appendClickedUserToMembers($(this).attr("data-user-name"), $(this).attr("data-user-id"))
   });
 
   $(document).on("click", ".chat-group-user__btn--remove", function () {
