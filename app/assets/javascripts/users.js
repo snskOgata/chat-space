@@ -49,4 +49,8 @@ $(function () {
     $(this).parent().remove();
     appendClickedUserlist($(this).attr("data-user-name"), $(this).attr("data-user-id"))
   });
+
+  $(document).on("click", ".chat-group-user__btn--remove", function () {
+    $(this).parent().remove();
+  });
 });
