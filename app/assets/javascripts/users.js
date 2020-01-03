@@ -18,6 +18,15 @@ $(function () {
     $("#user-search-result").append(html);
   }
 
+  function appendClickedUserlist(name, id) {
+    var html = `<div class='chat-group-user'>
+            <input name='group[user_ids][]' type='hidden' value='${id}'>
+            <p class='chat-group-user__name'>${name}</p>
+            <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+          </div>`
+    $("#chat-group-users").append(html)
+  }
+
   $("#user-search-field").on("keyup", function () {
     var input = $("#user-search-field").val();
 
@@ -34,5 +43,10 @@ $(function () {
       .fail(function () {
         console.log('通信エラーです。ユーザが表示できません。');
       });
+  });
+
+  $(document).on("click", ".chat-group-user__btn--add", function () {
+    $(this).parent().remove();
+    appendClickedUserlist($(this).attr("data-user-name"), $(this).attr("data-user-id"))
   });
 });
