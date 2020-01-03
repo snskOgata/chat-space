@@ -2,12 +2,14 @@ $(function () {
 
   function buildHTML(message) {
     // 名前と日付
-    let html = `<div class="message-box__top-items">
-                  <div class="message-box__top-items__name">
-                    ${message.user_name}
-                  </div>
-                  <div class="message-box__top-items__date">
-                    ${message.date}
+    let html = `<div class="message" data-message-id="${message.id}">
+                  <div class="message-box__top-items">
+                    <div class="message-box__top-items__name">
+                      ${message.user_name}
+                    </div>
+                    <div class="message-box__top-items__date">
+                      ${message.date}
+                    </div>
                   </div>
                 </div>`
 
@@ -56,4 +58,27 @@ $(function () {
         $('.bottom-items__send-btn').prop('disabled', false);
       })
   })
+
+  var reloadMessages = function () {
+    last_message_id = $('.message-box:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+      .done(function (messages) {
+        if (messages.length !== 0) {
+          var insertHTML = '';
+
+          $.each(messages, function (i, message) {
+            insertHTML += buildHTML(message)
+          });
+
+          $('.messages').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+        }
+      });
+  };
+  setInterval(reloadMessages, 7000);
 });
