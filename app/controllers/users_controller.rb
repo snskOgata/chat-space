@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def index
     keyword = params[:keyword]
     if keyword.empty?
-      @users = User.all
+      @users = nil
     else
-      @users = User.where('name LIKE(?)', "%#{keyword}%")
+      @users = User.where('name LIKE(?)', "%#{keyword}%").where.not(id: current_user.id).limit(10)
     end
     respond_to do |format|
       format.html
