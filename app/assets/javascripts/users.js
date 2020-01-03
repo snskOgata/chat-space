@@ -1,5 +1,5 @@
 $(function () {
-
+  // インクリメンタルサーチの結果を追加表示
   function appendSearchedUserlist(users) {
     html = ""
     if (users.length) {
@@ -18,6 +18,7 @@ $(function () {
     $("#user-search-result").append(html);
   }
 
+  // 追加をクリックされたユーザをチャットメンバーに表示
   function appendClickedUserlist(name, id) {
     var html = `<div class='chat-group-user'>
             <input name='group[user_ids][]' type='hidden' value='${id}'>
@@ -41,7 +42,7 @@ $(function () {
         appendSearchedUserlist(users);
       })
       .fail(function () {
-        console.log('通信エラーです。ユーザが表示できません。');
+        alert('通信エラーです。ユーザが表示できません。');
       });
   });
 
