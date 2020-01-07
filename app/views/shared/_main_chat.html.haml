@@ -7,7 +7,8 @@
         %ul.top-items__left-item__menber-list
           Member:
           - @group.users.each do |user|
-            = user.name
+            %li<
+              = user.name
       = link_to "/groups/#{@group.id}/edit", class: 'top-items__edit-btn' do
         Edit
   .chat-main__message-list
